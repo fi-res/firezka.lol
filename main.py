@@ -3,9 +3,9 @@ from fastapi.responses import Response, FileResponse
 
 app = FastAPI()
 
-@app.get('')
+@app.get('/')
 def get():
-	return '6-7'
+	return 'Скоро все будет, потом сделаю'
 
 @app.get("/chupep.jpg")
 async def chupep():
