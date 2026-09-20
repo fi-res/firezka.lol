@@ -1,0 +1,88 @@
+#landing {
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 50vw;
+    background: #2c2a27;
+    padding: 16px;
+    position: relative;
+    isolation: isolate;
+    transition: color 240ms;
+}
+.contact::after {
+    content: " ";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: #ec5e1c;
+    scale: 0 1;
+    transform-origin: right;
+    transition: scale 240ms;
+}
+
+.contact:hover::after {
+    transform-origin: left;
+    scale: 1;
+}
+
+.contact > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact > div > div {
+    color: #fbeadb;
+    font-size: 20px;
+}
+.contact:hover > div > div {
+    color: #fbeadb !important;
+}
+
+img {
+    width: min-content;
+    height: min-content;
+}
+
+#name {
+    margin-top: 15px;
+    font-weight: bolder;
+    font-size: 30px;
+    background: #1e1c1a;
+    width: min-content;
+    position: absolute;
+    padding-left: 150px;
+    left: 0;
+}
+#name::after {
+    content: "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
+    position: absolute;
+    animation: name-move 60s linear infinite;
+    z-index: -1;
+}
+
+@keyframes name-move {
+    from {
+        transform: translateX(calc(-5395px + 100vw));
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
