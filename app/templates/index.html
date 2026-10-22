@@ -3,12 +3,57 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/index.css">
     <title>файрез</title>
+    <script>
+    // https://dev.to/webdiscus/3d-parallax-effect-by-moving-mouse-using-htmlcss-7b2
+    // get the root element
+    const root = document.documentElement;
+
+    document.addEventListener('mousemove', (event) => {
+      // calculate transformation values
+      const smoothMove = 0.05;
+      const rotateX = (event.clientY - window.innerHeight / 2) * smoothMove;
+      const rotateY = (event.clientX - window.innerWidth / 2) * -smoothMove / 2;
+
+      // set CSS variables
+      root.style.setProperty('--paralax-x', `${rotateX}deg`);
+      root.style.setProperty('--paralax-y', `${rotateY}deg`);
+    });
+
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        let flashlight = document.getElementById("flashlight");
+    });
+    const isTouchDevice = () => {
+      try {
+        document.createEvent("TouchEvent");
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+
+    function getMousePosition(e) {
+      mouseX = !isTouchDevice() ? e.pageX : e.touches[0].pageX;
+      mouseY = !isTouchDevice() ? e.pageY : e.touches[0].pageY;
+
+      flashlight.style.setProperty("--flashlight-x", mouseX + "px");
+      flashlight.style.setProperty("--flashlight-y", mouseY + "px");
+    }
+
+    document.addEventListener("mousemove", getMousePosition);
+    document.addEventListener("touchmove", getMousePosition);
+
+    </script>
 </head>
 <body>
+    <div id="flashlight"></div>
     <div id="landing">
         <div>
             <img src="/static/images/avatar.png">
-            <div id="name">FIRE</div>
+            <div id="name">fi-rezzz</div>
         </div>
         <div id="contacts">
             <a href="https://t.me/nwokez">
